@@ -29,7 +29,7 @@ export class ResetComponent implements OnInit {
 
   forgotPassword(value){
     this.authService.resetPassword(value.email).then(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/sign-in']);
     })
   }
 
