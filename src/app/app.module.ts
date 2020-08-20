@@ -17,6 +17,15 @@ import { environment } from '../environments/environment';
 import { ResetComponent } from './components/reset/reset.component';
 import { EditComponent } from './components/edit/edit.component';
 
+export const firebaseConfig = {
+    apiKey: "AIzaSyATvmgh6JNcjNzAtqV0hcXqHZEnXqfZ1NY",
+    authDomain: "login-page-angular.firebaseapp.com",
+    databaseURL: "https://login-page-angular.firebaseio.com",
+    projectId: "login-page-angular",
+    storageBucket: "login-page-angular.appspot.com",
+    messagingSenderId: "244108665615"
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +42,7 @@ import { EditComponent } from './components/edit/edit.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
