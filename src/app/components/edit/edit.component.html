@@ -1,0 +1,38 @@
+<div class="container text-center mt-5" *ngIf="(user$|async) as user">
+    <h1 class="mb-4">Edit your Account!</h1>
+    <form [formGroup]="editForm" >
+        <div class="my-3">
+            <div class="d-flex justify-content-center row">
+            <input type="text" formControlName="firstName" class="col-md-5 form-control form-control-lg" placeholder="First Name">
+            </div>
+        </div>
+        <div class="my-3">
+            <div class="d-flex justify-content-center row">
+            <input type="text" formControlName="middleName" class="col-md-5 form-control form-control-lg" placeholder="Middle Name">
+            </div>
+        </div>
+        <div class="my-3">
+            <div class="d-flex justify-content-center row">
+            <input type="text" formControlName="lastName" class="col-md-5 form-control form-control-lg" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="my-3">
+            <div class="d-flex justify-content-center row">
+            <input type="number" formControlName="age" class="col-md-5 form-control form-control-lg" placeholder="Age">
+            </div>
+        </div>
+        <div class="my-3">
+            <div class="d-flex justify-content-center row">
+            <input type="text" formControlName="address" class="col-md-5 form-control form-control-lg" placeholder="Address">
+            </div>
+        </div>
+        <div class="my-3">
+            <div class="d-flex justify-content-center row">
+            <input type="text" formControlName="occupation" class="col-md-5 form-control form-control-lg" placeholder="Occupation">
+            </div>
+        </div>
+        <div class="text-danger">{{ errorMessage }}</div>
+        <div class="text-success">{{ successMessage }}</div>
+        <button class="btn btn-dark btn-lg mt-3" type="submit" (click)="edit(editForm.value)">Save Changes</button>
+    </form>
+</div>

@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -38,7 +39,9 @@ export class AuthService {
           address: value.address,
           occupation: value.occupation
         }).then(() => {
-          this.router.navigate(['/dashboard']);
+          return firebase.auth().currentUser.sendEmailVerification().then(() => {
+             this.router.navigate(['/dashboard']);
+          })
         });
       }, err => reject(err))
     })
@@ -77,5 +80,31 @@ export class AuthService {
         }
       })
     })
+  }
+
+  edit(value){
+    return new Promise<any>((resolve, reject) => {
+      var user = this.afAuth.onAuthStateChanged(user => {
+        if(user){
+          this.afs.collection('user-details').doc(user.uid).update({
+            firstName: value.firstName,
+            middleName: value.middleName,
+            lastName: value.lastName,
+            age: value.age,
+            address: value.address,
+            occupation: value.occupation
+          }).then(()=> {
+            this.router.navigate(['/dashboard']);
+            resolve(user);
+          }).catch(function(error){
+            reject(error);
+          })
+        }
+      })
+    })
+  }
+
+  resetPassword(email){
+    return this.afAuth.sendPasswordResetEmail(email);
   }
 }
