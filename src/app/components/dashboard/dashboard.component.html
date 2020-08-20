@@ -1,0 +1,12 @@
+<div class="d-flex container justify-content-center mt-5">
+    <ul *ngIf="(user$|async) as user">
+      <h1 class="display-1 mb-3">Hello {{user.firstName}}!</h1>
+      <h5 class="lead text-center mb-4">Here are your account details</h5>
+      <div class="h2 font-weight-light text-left my-3">First Name: {{user.firstName}}</div>
+      <div class="h2 font-weight-light text-left my-3">Middle Name: {{user.middleName}}</div>
+      <div class="h2 font-weight-light text-left my-3">Last Name: {{user.lastName}}</div>
+      <div class="h2 font-weight-light text-left my-3">Age: {{user.age}}</div>
+      <div class="h2 font-weight-light text-left my-3">Address: {{user.address}}</div>
+      <div class="h2 font-weight-light text-left my-3">Occupation: {{user.occupation}}</div>
+    </ul>
+</div>

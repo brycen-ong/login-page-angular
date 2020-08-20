@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "login-page-angular": {
+      "hosting": {
+        "login-page-angular": [
+          "login-page-angular"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<div *ngIf = " user$|async then loggedIn else loggedOut"></div>
+
+<ng-template #loggedIn>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container">
+            <span class="navbar-brand justify-content-start h1 font-weight-normal ml-md-n5">Brycen's Login Page</span>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#In">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="In">
+                <div class="nav navbar-nav">
+                    <a class="nav-item nav-link mx-3" href="#" (click)="signOut()">Logout</a>
+                    <a class="nav-item nav-link mx-3" href="#" routerLink="/dashboard">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</ng-template>
+
+<ng-template #loggedOut>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container">
+            <span class="navbar-brand justify-content-start h1 font-weight-normal ml-md-n5">Brycen's Login Page</span>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#Out">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="Out">
+                <div class="nav navbar-nav">
+                    <a class="nav-item nav-link mx-3" href="#" routerLink="/home">Home</a>
+                    <a class="nav-item nav-link mx-3" href="#" routerLink="/sign-in">Sign In</a>
+                    <a class="nav-item nav-link mx-3" href="#" routerLink="/sign-up">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+        
+</ng-template>

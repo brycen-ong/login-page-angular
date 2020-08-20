@@ -117,8 +117,16 @@
               "devServerTarget": "login-page-angular:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "login-page-angular"
+    }
+  },
+  "defaultProject": "login-page-angular",
+  "cli": {
+    "analytics": "e03a3047-c674-45c7-a6d0-8160b1f3812c"
+  }
 }
